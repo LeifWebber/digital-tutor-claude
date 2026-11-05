@@ -53,7 +53,7 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--
 <div class="verdict">
   <div class="v ok"><b>主推 · 组合 A：讲课、答疑都用 anam</b><p>讲课用 anam 离线视频预渲染，答疑用 anam 实时。讲课和答疑是同一张脸、同一个声音；现有代码改动最小，价格最低。</p></div>
   <div class="v warn"><b>备选 · 组合 B：阿里万相出讲课视频，答疑用 anam</b><p>唯一能原生输出透明背景、直接叠在幻灯片上的方案。但画面自然度不如 anam，每节课贵约 6 倍。</p></div>
-  <div class="v bad"><b>不推荐</b><p>阿里万相实时对话：不响应提问，口型对不上。百炼 wan2.7 视频模型：问题太多，0.6 元/秒。Simli：画质差，听不懂中文。</p></div>
+  <div class="v bad"><b>不推荐</b><p>阿里万相实时对话：不响应提问，口型对不上。百炼 wan2.7 视频模型：问题太多，0.6 元/秒。Simli：画质差，听不懂中文。HeyGen 实时：价格与 anam 持平，画面不如 anam。</p></div>
 </div>
 
 <h2>两个推荐组合</h2>
@@ -81,6 +81,7 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--
 <tr><td>百炼 wan2.7-i2v</td><td>预渲染</td><td class="num">0 / 0 / 0</td><td><span class="tag bad">淘汰</span> 13 秒样片花 7.8 元，问题太多</td></tr>
 <tr><td>anam 实时</td><td>实时</td><td class="num">3 / 3 / 4</td><td><span class="tag ok">可用</span> 转写语言设好后，中文、英语、印尼语都能听懂并回答，能打断</td></tr>
 <tr><td>万相 2D 实时</td><td>实时</td><td class="num">1 / 2 / 0</td><td><span class="tag bad">淘汰</span> 不响应提问，口型对不上，网络频繁出错（试用版）</td></tr>
+<tr><td>HeyGen 实时（LiveAvatar）</td><td>实时</td><td class="num">2 / 2 / 3</td><td><span class="tag bad">不切换</span> 能打断，但画面和口型都不如 anam</td></tr>
 <tr><td>Simli</td><td>实时</td><td class="num">1 / 1 / 1</td><td><span class="tag bad">淘汰</span> 画质差，听中文困难</td></tr>
 </tbody></table></div>
 
@@ -88,7 +89,7 @@ code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--
 <ol>
 <li><b>课上到 30 分钟断开，是我们自己代码设的。</b> anam 确认 Growth 及以上套餐没有会话时长上限。把 <code>app/api/avatar/session/route.ts</code> 里的 <code>MAX_SESSION_LENGTH_SECONDS = 1800</code> 改大即可。</li>
 <li><b>anam 实时要听懂印尼语或中文，有两处要设：</b> 转写语言设为 <code>id</code> 或 <code>zh</code>，语音识别引擎用 <code>anam</code>，Deepgram 不支持这两种语言。代码里建会话时要带上 <code>languageCode</code>。</li>
-<li><b>HeyGen 贵的是预渲染；它的实时产品单独定价，和 anam 同档，不是降价。</b> 预渲染的 Avatar V 数字分身官方价 $7.20/分钟（我们之前实测约 $6/分钟），"太贵"的判断仍然成立。实时产品 LiveAvatar 的"只渲染画面"模式约 $0.09/分钟，但不含语音；加上 ElevenLabs 后约 $0.10–0.13/分钟，与 anam 持平。全托管模式约 $0.18/分钟，比 anam 贵。官网没有降价说明，是两条产品线本来就定价不同。所以不推荐切换，只作为和 anam 谈价的参照。</li>
+<li><b>HeyGen 贵的是预渲染；它的实时产品单独定价，和 anam 同档，不是降价；实测画面也不如 anam。</b> 预渲染的 Avatar V 数字分身官方价 $7.20/分钟（我们之前实测约 $6/分钟），"太贵"的判断仍然成立。实时产品 LiveAvatar 的"只渲染画面"模式约 $0.09/分钟，但不含语音；加上 ElevenLabs 后约 $0.10–0.13/分钟，与 anam 持平。全托管模式约 $0.18/分钟，比 anam 贵。官网没有降价说明，是两条产品线本来就定价不同。所以不推荐切换，只作为和 anam 谈价的参照。</li>
 </ol>
 
 </main>
