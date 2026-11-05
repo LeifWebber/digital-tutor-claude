@@ -1,0 +1,23 @@
+{
+  "id": "avv_ac64c7c2-1560-4ef4-ba12-ab949c958bb2",
+  "status": "completed",
+  "completionReason": "script_completed",
+  "truncated": false,
+  "durationSeconds": 40.556,
+  "effectiveMaxDurationSeconds": 180,
+  "sessionId": "e53cb9df-cc38-4f06-8090-5ece9c50a0e0",
+  "region": null,
+  "zeroDataRetention": false,
+  "content": {
+    "available": true,
+    "deleteAt": null,
+    "url": "(已移除：预签名下载链接，1 小时后失效)",
+    "expiresAt": "2026-11-05T03:03:18.397Z"
+  },
+  "failure": null,
+  "retryOf": null,
+  "createdAt": "2026-11-05T02:02:29.074Z",
+  "startedAt": "2026-11-05T02:02:33.141Z",
+  "completedAt": "2026-11-05T02:03:16.391Z",
+  "metadata": {}
+}

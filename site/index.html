@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 教师数字人推荐</title>
+<style>
+:root{
+  --bg:#fbfaf7;--fg:#1d1d1b;--muted:#6b6a65;--line:#e4e1d9;--card:#ffffff;
+  --accent:#2f5d8a;--ok:#2e7d4f;--warn:#a86b12;--bad:#b23a2e;--chip:#f1efe9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614;--fg:#ecebe6;--muted:#a3a19a;--line:#33322e;--card:#1f1f1c;
+    --accent:#8db6e0;--ok:#6cc391;--warn:#e0a94f;--bad:#e8806f;--chip:#2a2a26;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614;--fg:#ecebe6;--muted:#a3a19a;--line:#33322e;--card:#1f1f1c;
+  --accent:#8db6e0;--ok:#6cc391;--warn:#e0a94f;--bad:#e8806f;--chip:#2a2a26;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Segoe UI",sans-serif}
+main{max-width:920px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:28px;line-height:1.3;margin:0 0 6px}
+h2{font-size:19px;margin:40px 0 12px;padding-top:8px;border-top:1px solid var(--line)}
+.meta{color:var(--muted);font-size:14px;margin:0 0 24px}
+.verdict{display:grid;gap:12px;margin:20px 0}
+.v{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:14px 16px}
+.v.ok{border-left-color:var(--ok)}.v.warn{border-left-color:var(--warn)}.v.bad{border-left-color:var(--bad)}
+.v b{display:block;margin-bottom:2px}
+.v p{margin:0;color:var(--muted)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-weight:600;background:var(--chip);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.k{color:var(--muted);white-space:nowrap}
+.num{font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:12.5px;padding:1px 8px;border-radius:999px;background:var(--chip);white-space:nowrap}
+.tag.ok{color:var(--ok)}.tag.warn{color:var(--warn)}.tag.bad{color:var(--bad)}
+ol,ul{padding-left:22px}li{margin:4px 0}
+a{color:var(--accent)}
+code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--chip);padding:1px 5px;border-radius:4px}
+.note{color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<h1>AI 教师数字人选型：推荐方案</h1>
+<p class="meta">2026-11-05 · 依据：桌面调研加上 5 家方案的实测
+
+<div class="verdict">
+  <div class="v ok"><b>主推 · 组合 A：讲课、答疑都用 anam</b><p>讲课用 anam 离线视频预渲染，答疑用 anam 实时。讲课和答疑是同一张脸、同一个声音；现有代码改动最小，价格最低。</p></div>
+  <div class="v warn"><b>备选 · 组合 B：阿里万相出讲课视频，答疑用 anam</b><p>唯一能原生输出透明背景、直接叠在幻灯片上的方案。但画面自然度不如 anam，每节课贵约 6 倍。</p></div>
+  <div class="v bad"><b>不推荐</b><p>阿里万相实时对话：不响应提问，口型对不上。百炼 wan2.7 视频模型：问题太多，0.6 元/秒。Simli：画质差，听不懂中文。</p></div>
+</div>
+
+<h2>两个推荐组合</h2>
+<div class="scroll"><table>
+<thead><tr><th></th><th>组合 A（主推）</th><th>组合 B（备选）</th></tr></thead>
+<tbody>
+<tr><td class="k">讲课（预渲染）</td><td>anam 离线视频（Avatar Videos API）</td><td>阿里 万相数字人"视频创作"</td></tr>
+<tr><td class="k">答疑（实时）</td><td>anam 实时（现状）</td><td>anam 实时</td></tr>
+<tr><td class="k">声音</td><td>ElevenLabs 音色（导入 anam）</td><td>讲课用 ElevenLabs 生成的 MP3；答疑同 A</td></tr>
+<tr><td class="k">一节课视频<br>27 分钟出镜，一次性</td><td class="num">$3–4.3（约 20–29 元）</td><td class="num">约 162 元<br><span class="note">只出镜 25% 约 40 元</span></td></tr>
+<tr><td class="k">80 节课全部出视频</td><td class="num">约 1,600–2,350 元</td><td class="num">约 1.3 万元<br><span class="note">25% 出镜约 3,200 元</span></td></tr>
+<tr><td class="k">答疑单价</td><td>$0.11–0.16/分钟（约 0.74–1.07 元）；企业价低至 $0.04</td><td>同 A</td></tr>
+<tr><td class="k">优点</td><td>讲课、答疑同一个老师形象；渲染快，35 秒视频约 1 分钟出片；anam 书面确认 MP4 可以自存、无限回放</td><td>透明背景，人物直接叠在幻灯片上；国内厂商</td></tr>
+<tr><td class="k">风险</td><td>暂无</td><td>自然度只有 2 分；右下角有"AI生成"标识；iPhone/Safari 很可能播不了透明 WebM；渲染耗时约为视频时长的 5 倍</td></tr>
+</tbody></table></div>
+<p class="note">价格来源：anam 离线视频为 anam 邮件回复的"与套餐每分钟价相同"；万相为阿里官方计费页的 0.1 元/秒。汇率按 1 美元 = 6.69 元。</p>
+
+<h2>实测结果</h2>
+<p class="note">同一套讲稿：勾股定理，英语和印尼语各一段。打分为 1–5 分，依次是"口型 / 自然度 / 能否上课"。</p>
+<div class="scroll"><table>
+<thead><tr><th>方案</th><th>模式</th><th>英语打分</th><th>结论</th></tr></thead>
+<tbody>
+<tr><td>anam 离线视频</td><td>预渲染</td><td class="num">4 / 3 / 4</td><td><span class="tag ok">可用</span> 54–59 秒渲染出 33–43 秒视频</td></tr>
+<tr><td>万相视频创作</td><td>预渲染</td><td class="num">3 / 2 / 4</td><td><span class="tag warn">可用但不够自然</span> 已核验是透明背景</td></tr>
+<tr><td>百炼 wan2.7-i2v</td><td>预渲染</td><td class="num">0 / 0 / 0</td><td><span class="tag bad">淘汰</span> 13 秒样片花 7.8 元，问题太多</td></tr>
+<tr><td>anam 实时</td><td>实时</td><td class="num">3 / 3 / 4</td><td><span class="tag ok">可用</span> 转写语言设好后，中文、英语、印尼语都能听懂并回答，能打断</td></tr>
+<tr><td>万相 2D 实时</td><td>实时</td><td class="num">1 / 2 / 0</td><td><span class="tag bad">淘汰</span> 不响应提问，口型对不上，网络频繁出错（试用版）</td></tr>
+<tr><td>Simli</td><td>实时</td><td class="num">1 / 1 / 1</td><td><span class="tag bad">淘汰</span> 画质差，听中文困难</td></tr>
+</tbody></table></div>
+
+<h2>顺带发现</h2>
+<ol>
+<li><b>课上到 30 分钟断开，是我们自己代码设的。</b> anam 确认 Growth 及以上套餐没有会话时长上限。把 <code>app/api/avatar/session/route.ts</code> 里的 <code>MAX_SESSION_LENGTH_SECONDS = 1800</code> 改大即可。</li>
+<li><b>anam 实时要听懂印尼语或中文，有两处要设：</b> 转写语言设为 <code>id</code> 或 <code>zh</code>，语音识别引擎用 <code>anam</code>，Deepgram 不支持这两种语言。代码里建会话时要带上 <code>languageCode</code>。</li>
+<li><b>HeyGen 贵的是预渲染；它的实时产品单独定价，和 anam 同档，不是降价。</b> 预渲染的 Avatar V 数字分身官方价 $7.20/分钟（我们之前实测约 $6/分钟），"太贵"的判断仍然成立。实时产品 LiveAvatar 的"只渲染画面"模式约 $0.09/分钟，但不含语音；加上 ElevenLabs 后约 $0.10–0.13/分钟，与 anam 持平。全托管模式约 $0.18/分钟，比 anam 贵。官网没有降价说明，是两条产品线本来就定价不同。所以不推荐切换，只作为和 anam 谈价的参照。</li>
+</ol>
+
+</main>
+</body>
+</html>
